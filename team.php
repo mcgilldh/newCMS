@@ -6,9 +6,23 @@
     <?php
        include("includes/phpheader.php");
        include ($thisabspath."/includes/cssheader.php");
-       include ($thisabspath."/includes/javaheader.php");
+       include ($thisabspath."/includes/javaheader.php");       
     ?>
-    <script src="team_fns.js"> </script>
+    <script src="includes/js/team_fns.js"> </script>
+
+    <!-- If we are being linked to this page from the main menu, we must automatically display the requested bio -->
+    <!-- The following script adds a javascript command to display the bio once the page has been fully loaded -->
+    <?php
+       if (isset($_GET["id"]) && isset($_GET["name"])) {
+         print "<script> 
+		$(document).ready(function () {
+		  displayBio('".$_GET["id"]."', '".$_GET["name"]."');
+		});
+		</script>";
+       }
+    ?>
+
+
     <div id="teamContent">
       <h1>Our Team</h1>
       <div class="box">
