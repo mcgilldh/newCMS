@@ -1,11 +1,13 @@
 <?php
-include("includes/dbconfig.php");
+include("../includes/dbconfig.php");
+include("../includes/connection.php");
+include("../includes/functions.php");
 $get = $_GET;
 
 if ($get['mode']=='getRecent') {
     
     //Grab the first 3 calendar entries that I have access to
-    //$grabcalendar=mysql_query("SELECT * FROM cms_calendar where calendarreleased=1 and calendaraccess<=".$_SESSION['profile']." and calendarend>=now() order by calendarstart asc limit 0,3");
+    //NOTE - mysql_query is depreciated and will not work in future updates of PHP. This must be changed!
     $grabcalendar=mysql_query("SELECT * FROM cms_calendar where calendarreleased=1 and calendarend>=now() order by calendarstart asc limit 0,3");
 
     
@@ -24,7 +26,7 @@ if ($get['mode']=='getRecent') {
             $starttime = date('g:i a',strtotime($calendar['calendarstart']));
 
             $thiscalendar = split2(strip_tags($calendar['calendarinfo']), " ", 18);
-            $textblock = trip(stripslashes($thiscalendar[0]));
+            $textblock = trim(stripslashes($thiscalendar[0]));
 
             
             

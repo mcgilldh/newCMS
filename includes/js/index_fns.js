@@ -5,7 +5,7 @@ $(document).ready(function () {
 
 function getCalendarInfo() {
     var request = $.ajax({
-  	url: "server.php",
+  	url: "servers/server.php",
   	type: "GET",
   	data: { mode : "getRecent" },
   	dataType: "json"

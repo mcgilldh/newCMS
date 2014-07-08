@@ -12,7 +12,7 @@ function getBlogs(blogID, blogMin, blogMax) {
     }
 
     var request = $.ajax({
-	url: "blogServer.php",
+	url: "servers/blogServer.php",
 	type: "GET",
   	data: { mode : queryMode,
 		id : blogID

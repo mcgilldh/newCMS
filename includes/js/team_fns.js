@@ -1,6 +1,6 @@
 function displayBio(memberID, fullName) {
     var request = $.ajax({
-  	url: "teamServer.php",
+  	url: "servers/teamServer.php",
   	type: "GET",
   	data: { mode : "getBio",
 		id : memberID,

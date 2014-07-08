@@ -1,7 +1,7 @@
 <?php
-include("includes/dbconfig.php");
-include("includes/connection.php");
-include("includes/functions.php");
+include("../includes/dbconfig.php");
+include("../includes/connection.php");
+include("../includes/functions.php");
 $get = $_GET;
 
 if ($get['mode']=="getBio") {
